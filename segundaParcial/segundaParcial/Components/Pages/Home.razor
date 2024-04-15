@@ -1,0 +1,102 @@
+﻿@page "/"
+@using System.Collections.Generic
+@rendermode InteractiveServer
+
+<h1>Productos</h1>
+
+<form @onsubmit="GuardarProducto">
+    <div class="form-group">
+        <label for="inventario">Inventario</label>
+        <input type="number" class="form-control" id="inventario" @bind="producto.Inventario">
+        <small style="color:red">@errorInventario</small>
+    </div>
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" @bind="producto.Nombre">
+    </div>
+    <div class="form-check">
+        <h2>Departamento</h2>
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="departamento" @bind="producto.Departamento">
+            Frutas
+        </label>
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="departamento" @bind="producto.Departamento" >
+            Verduras
+        </label>
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="departamento" @bind="producto.Departamento">
+            Lácteos
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+
+@if (productos.Count > 0)
+{
+    <h2>Lista de Productos</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Inventario</th>
+                <th>Nombre</th>
+                <th>Departamento</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in productos)
+            {
+                <tr>
+                    <td>@p.Inventario</td>
+                    <td>@p.Nombre</td>
+                    <td>@p.Departamento</td>
+                    <td>
+                        <button class="btn btn-danger" @onclick="() => EliminarProducto(p)">Eliminar</button>
+                        <button class="btn btn-warning" @onclick="() => EditarProducto(p)">Editar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    public class Producto
+    {
+        public int Inventario { get; set; }
+        public string Nombre { get; set; }
+        public string Departamento { get; set; }
+    }
+
+    private Producto producto = new Producto();
+    private List<Producto> productos = new List<Producto>();
+    private string errorInventario = "";
+    private string departamentoTemp = "";
+
+    private void GuardarProducto()
+    {
+        if (productos.Any(p => p.Inventario == producto.Inventario))
+        {
+            errorInventario = "El número de inventario ya está registrado.";
+            return;
+        }
+
+        productos.Add(new Producto { Inventario = producto.Inventario, Nombre = producto.Nombre, Departamento = producto.Departamento });
+        producto = new Producto(); // Limpiar el formulario
+        errorInventario = ""; // Limpiar mensaje de error
+    }
+
+    private void EliminarProducto(Producto p)
+    {
+        productos.Remove(p);
+    }
+
+    private void EditarProducto(Producto p)
+    {
+        producto = p;
+        departamentoTemp = p.Departamento;
+        productos.Remove(p);
+    }
+}

@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Colibecas\\source\\repos\\segundaParcial\\segundaParcial\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\segundaParcial.bundle.scp.css",
+      "PackagePath": "staticwebassets\\segundaParcial.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Colibecas\\source\\repos\\segundaParcial\\segundaParcial\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\Colibecas\\source\\repos\\segundaParcial\\segundaParcial\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Colibecas\\source\\repos\\segundaParcial\\segundaParcial\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Colibecas\\source\\repos\\segundaParcial\\segundaParcial\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.segundaParcial.props",
+      "PackagePath": "build\\segundaParcial.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.segundaParcial.props",
+      "PackagePath": "buildMultiTargeting\\segundaParcial.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.segundaParcial.props",
+      "PackagePath": "buildTransitive\\segundaParcial.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.segundaParcial.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
